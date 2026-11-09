@@ -1,0 +1,36 @@
+name: dataskill check
+description: Check changed SQL files for writes, cost risks and common mistakes.
+branding:
+  icon: database
+  color: blue
+inputs:
+  files:
+    description: Space-separated SQL files to check. Defaults to .sql files changed against the base branch.
+    required: false
+    default: ""
+  strict:
+    description: Fail on warnings as well as blocks.
+    required: false
+    default: "false"
+runs:
+  using: composite
+  steps:
+    - name: Install dataskill
+      shell: bash
+      run: cargo install --locked --quiet --path "${{ github.action_path }}/.."
+    - name: Check SQL
+      shell: bash
+      env:
+        FILES: ${{ inputs.files }}
+        STRICT: ${{ inputs.strict }}
+        BASE: ${{ github.base_ref }}
+      run: |
+        if [ -z "$FILES" ]; then
+          git fetch --quiet --depth=1 origin "${BASE:-main}" || true
+          FILES=$(git diff --name-only --diff-filter=AM "origin/${BASE:-main}" -- '*.sql' || true)
+        fi
+        if [ -z "$FILES" ]; then echo "No SQL files to check."; exit 0; fi
+        ARGS=""
+        if [ "$STRICT" = "true" ]; then ARGS="--strict"; fi
+        # shellcheck disable=SC2086
+        dataskill check $ARGS $FILES

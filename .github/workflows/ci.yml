@@ -1,0 +1,16 @@
+name: ci
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: cargo test --locked
+      - run: cargo clippy --locked -- -D warnings
+      - name: Check the example queries
+        run: |
+          cargo run --quiet -- check --dialect postgres examples/postgres-shop/queries/good_*.sql
+          ! cargo run --quiet -- check --dialect postgres examples/postgres-shop/queries/bad_write.sql

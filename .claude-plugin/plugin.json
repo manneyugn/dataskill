@@ -1,0 +1,8 @@
+{
+  "name": "dataskill",
+  "version": "0.1.0",
+  "description": "Agent skills for data engineers and analysts, with a guard that blocks writes and checks query cost before anything reaches the warehouse.",
+  "author": { "name": "dataskill contributors" },
+  "license": "MIT",
+  "keywords": ["sql", "bigquery", "postgres", "dbt", "data-engineering", "skills", "mcp"]
+}

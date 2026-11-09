@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "dataskill": {
+      "command": "dataskill",
+      "args": ["mcp"]
+    }
+  }
+}

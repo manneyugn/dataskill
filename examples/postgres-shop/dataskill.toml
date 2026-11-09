@@ -1,0 +1,7 @@
+warehouse = "postgres"
+max_bytes = "6MB"   # deliberately small so you can see the guard refuse a big scan
+max_rows = 50
+
+[postgres]
+url_env = "DATABASE_URL"
+schemas = ["shop"]

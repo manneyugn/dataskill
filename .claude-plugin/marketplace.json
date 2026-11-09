@@ -1,0 +1,11 @@
+{
+  "name": "dataskill",
+  "owner": { "name": "dataskill contributors" },
+  "plugins": [
+    {
+      "name": "dataskill",
+      "source": "./",
+      "description": "Data engineering skills plus a read-only, cost-checked SQL guard for BigQuery and Postgres."
+    }
+  ]
+}
