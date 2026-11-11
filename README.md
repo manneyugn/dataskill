@@ -20,12 +20,12 @@ Works with **BigQuery** and **Postgres**. No account, no API key, no data leaves
 
 ```bash
 # 1. The guard
-cargo install --git https://github.com/your-org/dataskill
+cargo install --git https://github.com/manneyugn/dataskill
 
 # 2. The skills: any agent
-npx skills add your-org/dataskill
+npx skills add manneyugn/dataskill
 #    or as a Claude Code plugin (skills + MCP server)
-/plugin marketplace add your-org/dataskill
+/plugin marketplace add manneyugn/dataskill
 /plugin install dataskill@dataskill
 
 # 3. In your data project
@@ -86,7 +86,7 @@ Just want the rules? Copy [RULES.md](RULES.md), five lines for any agent touchin
 ```yaml
 - uses: actions/checkout@v4
   with: { fetch-depth: 0 }
-- uses: your-org/dataskill/action@v0.1.0
+- uses: manneyugn/dataskill/action@v0.1.0
   with:
     strict: "true"
 ```

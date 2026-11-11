@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2024"
 description = "A guard between coding agents and your data warehouse: read-only, cost-checked SQL plus schema memory."
 license = "MIT"
-repository = "https://github.com/your-org/dataskill"
+repository = "https://github.com/manneyugn/dataskill"
 keywords = ["sql", "bigquery", "postgres", "mcp", "agents"]
 categories = ["command-line-utilities", "database"]
 
